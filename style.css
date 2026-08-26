@@ -56,3 +56,39 @@ footer {
   text-align: center;
 }
 footer a { color: var(--muted); }
+
+/* ---- media on the project page ---- */
+
+/* The GIF is 340px wide natively. It was being stretched to 400px, which is an
+   upscale and reads soft. Cap it at its own resolution and never above. */
+.shot-hero {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .10);
+}
+
+/* Phone captures are ~1:2.17, so three across gets tall and thin fast. Grid with
+   auto-fit lets them drop to two-up and then one-up on narrow screens instead of
+   shrinking into slivers. */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-items: center;
+}
+.shots img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 10px;
+  /* The captures have a near-white background that dissolves into the light
+     theme's card. The border is what keeps them reading as screens. */
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .10);
+}
+.shots figure { margin: 0; display: contents; }
